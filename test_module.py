@@ -13,9 +13,11 @@ class CatPlotTestCase(unittest.TestCase):
         actual = self.ax.get_xlabel()
         expected = "variable"
         self.assertEqual(actual, expected, "Expected line plot xlabel to be 'variable'")
+        
         actual = self.ax.get_ylabel()
         expected = "total"
         self.assertEqual(actual, expected, "Expected line plot ylabel to be 'total'")
+        
         actual = []
         for label in self.ax.get_xaxis().get_majorticklabels():
             actual.append(label.get_text())
@@ -42,9 +44,9 @@ class HeatMapTestCase(unittest.TestCase):
     
     def test_heat_map_values(self):
         actual = [text.get_text() for text in self.ax.get_default_bbox_extra_artists() if isinstance(text, mpl.text.Text)]
-        print(actual)
         expected = ['0.0', '0.0', '-0.0', '0.0', '-0.1', '0.5', '0.0', '0.1', '0.1', '0.3', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.2', '0.1', '0.0', '0.2', '0.1', '0.0', '0.1', '-0.0', '-0.1', '0.1', '0.0', '0.2', '0.0', '0.1', '-0.0', '-0.0', '0.1', '0.0', '0.1', '0.4', '-0.0', '-0.0', '0.3', '0.2', '0.1', '-0.0', '0.0', '0.0', '-0.0', '-0.0', '-0.0', '0.2', '0.1', '0.1', '0.0', '0.0', '0.0', '0.0', '0.3', '0.0', '-0.0', '0.0', '-0.0', '-0.0', '-0.0', '0.0', '0.0', '-0.0', '0.0', '0.0', '0.0', '0.2', '0.0', '-0.0', '0.2', '0.1', '0.3', '0.2', '0.1', '-0.0', '-0.0', '-0.0', '-0.0', '0.1', '-0.1', '-0.1', '0.7', '0.0', '0.2', '0.1', '0.1', '-0.0', '0.0', '-0.0', '0.1']
         self.assertEqual(actual, expected, "Expected different values in heat map.")
+        
 
 if __name__ == "__main__":
     unittest.main()
